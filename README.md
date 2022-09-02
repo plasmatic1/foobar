@@ -17,7 +17,7 @@ My Google Foobar Challenge Solutions.  All solutions were written for Python 2.
 |[fuel-injection-perfection](https://github.com/plasmatic1/foobar/blob/master/3/fuel-injection-perfection.py)|***|10p|Ad-hoc|
 |Level 4||||
 |[bringing-a-gun-to-a-trainer-fight](https://github.com/plasmatic1/foobar/blob/master/4/bringing-a-gun-to-a-trainer-fight.py)|****|12p|Geometry|
-|[running-with-bunnies](https://github.com/plasmatic1/foobar/blob/master/4/running-with-bunnies.py)|**|10p|Brute Force|
+|[running-with-bunnies](https://github.com/plasmatic1/foobar/blob/master/4/running-with-bunnies.py)|**|7p|Brute Force|
 |Level 5||||
 |[dodge-the-lasers](https://github.com/plasmatic1/foobar/blob/master/5/dodge-the-lasers.py)|*****|17p|Number Theory|
 
