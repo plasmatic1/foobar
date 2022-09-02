@@ -1,3 +1,11 @@
+# Let v_0 = [1, 0, ...]
+# Let A be the transition matrix
+#
+# Let A' = I + A + A^2 + A^3 + ... = a/(1-r) = I/(I-A) = (I-A)^-1
+# Notice that if we can compute A', then this gives us the long run behaviour of 
+# the system given a starting state.  In this case, computing v' = A'v_0 gives us
+# the vector that we want.  Just make sure to only isolate the states that are terminal
+
 from fractions import Fraction
 
 def get_gcd(a, b):
@@ -49,12 +57,6 @@ def gaussian(mat):
             if j != i:
                 v_add(mat[i], mat[j], -mat[j][p_col])
 
-# debug stuff
-# def debug_print(m, msg):
-#     print('---', msg, '---')
-#     for r in m:
-#         print(','.join(map(lambda f: (f'{f.numerator}/{f.denominator}' if f.denominator != 1 else str(f.numerator)).rjust(7), r)))
-
 def solution(m):
     n = len(m)
     terminal = []
@@ -77,17 +79,6 @@ def solution(m):
     for i in range(n): # convert back to list
         m[i] = list(m[i])
     
-    # Let v_0 = [1, 0, ...]
-    # Let A be the transition matrix
-    #
-    # Let A' = I + A + A^2 + A^3 + ... = a/(1-r) = I/(I-A) = (I-A)^-1
-    # Notice that if we can compute A', then this gives us the long run behaviour of 
-    # the system given a starting state.  In this case, computing v' = A'v_0 gives us
-    # the vector that we want.  Just make sure to only isolate the states that are terminal
-
-    # print(f'terminal={terminal}')
-    # debug_print(m, 'm_init')
-    
     # compute (I-A)^-1
     for i in range(n): # A -> I-A
         for j in range(n):
@@ -95,14 +86,11 @@ def solution(m):
             if i == j:
                 m[i][j] += 1
 
-    # debug_print(m, 'm_tr')
-    
     for i in range(n): # augment with I
         id_row = [1 if j == i else 0 for j in range(n)]
         m[i].extend(id_row)
     
     gaussian(m) # do gaussian elim
-    # debug_print(m, 'm_after_gauss')
     for i in range(n):
         m[i] = m[i][n:]
         
@@ -116,7 +104,3 @@ def solution(m):
     result.append(lcm)
     
     return result
-
-# res1 = solution([[0, 2, 1, 0, 0], [0, 0, 0, 3, 4], [0, 0, 0, 0, 0], [0, 0, 0, 0,0], [0, 0, 0, 0, 0]])
-# print res1
-
